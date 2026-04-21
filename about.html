@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О сайте — Транслитерация для загранпаспорта</title>
+    <meta
+      name="description"
+      content="Информация о сервисе транслитерации имени и фамилии для загранпаспорта по правилам МВД России."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0b2545;
+        --navy-2: #13315c;
+        --burgundy: #8d1b1b;
+        --gold: #c9a96a;
+        --bg: #eef1f7;
+        --text: #15233d;
+        --muted: #5b6b87;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family:
+          "Inter",
+          -apple-system,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 28px 16px 60px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .crest {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 12px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--navy), var(--navy-2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 28px;
+        font-weight: 700;
+        box-shadow:
+          0 6px 16px rgba(11, 37, 69, 0.25),
+          inset 0 0 0 2px var(--gold);
+        letter-spacing: -1px;
+      }
+      header h1 {
+        font-size: 28px;
+        margin: 0 0 6px;
+        color: var(--navy);
+        font-weight: 700;
+      }
+      header a.back {
+        color: var(--burgundy);
+        font-size: 13px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      header a.back:hover {
+        text-decoration: underline;
+      }
+      .card {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 4px 24px rgba(11, 37, 69, 0.07);
+        padding: 28px;
+        border: 1px solid #e3e8f1;
+        border-top: 3px solid var(--burgundy);
+      }
+      .card h2 {
+        color: var(--navy);
+        font-size: 19px;
+        margin: 24px 0 10px;
+      }
+      .card h2:first-child {
+        margin-top: 0;
+      }
+      .card p {
+        color: var(--text);
+        margin: 0 0 12px;
+      }
+      .card ul {
+        padding-left: 20px;
+        margin: 0 0 14px;
+      }
+      .card li {
+        margin-bottom: 6px;
+      }
+      .card a {
+        color: var(--burgundy);
+      }
+      footer {
+        text-align: center;
+        color: #8895af;
+        font-size: 12px;
+        margin-top: 30px;
+        line-height: 1.7;
+      }
+      footer a {
+        color: #8895af;
+        margin: 0 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="crest" aria-hidden="true">RU</div>
+        <h1>О сайте</h1>
+        <a href="./" class="back">← На главную</a>
+      </header>
+
+      <div class="card">
+        <h2>Что это за сервис</h2>
+        <p>
+          Сайт <strong>translit-passport</strong> — бесплатный онлайн-инструмент
+          для транслитерации имени, фамилии и любого русского текста на латиницу
+          по действующим правилам МВД России. Применяется при оформлении
+          загранпаспорта, виз, бронировании авиабилетов и заполнении анкет на
+          иностранных языках.
+        </p>
+
+        <h2>На каких правилах основан сервис</h2>
+        <p>
+          Используется единый международный стандарт
+          <strong>ICAO Doc 9303</strong>, закреплённый Приказом МВД России №889
+          (ранее — Приказом ФМС России №211). Эти правила действуют для всех
+          загранпаспортов, выдаваемых в Российской Федерации с 2014 года.
+        </p>
+
+        <h2>Как пользоваться</h2>
+        <ul>
+          <li>
+            Введите фамилию, имя и отчество русскими буквами в соответствующие
+            поля.
+          </li>
+          <li>Результат появится автоматически прямо под полем ввода.</li>
+          <li>
+            Нажмите кнопку «Копировать», чтобы скопировать результат в буфер
+            обмена.
+          </li>
+          <li>
+            В нижнем поле можно перевести произвольный текст — слово, фразу или
+            адрес.
+          </li>
+        </ul>
+
+        <h2>Точность результата</h2>
+        <p>
+          Сервис точно следует таблице соответствия букв из Приказа МВД №889.
+          Тем не менее, результат носит справочный характер — окончательное
+          написание имени в загранпаспорте определяется сотрудником
+          подразделения МВД при оформлении документа.
+        </p>
+        <p>
+          Если в ваших ранее выданных документах (старый загранпаспорт, виза,
+          водительские права) имя написано иначе, вы вправе подать заявление с
+          просьбой сохранить прежнее написание, приложив копию документа.
+        </p>
+
+        <h2>Бесплатно и без регистрации</h2>
+        <p>
+          Все функции сервиса доступны без регистрации, без ограничений на
+          количество запросов и без сбора персональных данных. Подробнее — в
+          <a href="privacy.html">политике конфиденциальности</a>.
+        </p>
+
+        <h2>Связь с автором</h2>
+        <p>
+          По вопросам работы сервиса, замечаниям и предложениям пишите на
+          электронную почту:
+          <a href="mailto:translit.passport@yandex.ru"
+            >translit.passport@yandex.ru</a
+          >
+        </p>
+      </div>
+
+      <footer>
+        <a href="./">Главная</a> · <a href="about.html">О сайте</a> ·
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </footer>
+    </div>
+  </body>
+</html>
