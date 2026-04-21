@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Транслитерация для загранпаспорта онлайн — по правилам МВД 2026</title>
+<meta name="description" content="Бесплатный онлайн-сервис транслитерации имени и фамилии для загранпаспорта по действующим правилам МВД РФ (стандарт ICAO Doc 9303). Введите ФИО на русском — получите написание латиницей.">
+<meta name="keywords" content="транслитерация, загранпаспорт, транслит, имя латиницей, фамилия латиницей, правила МВД, ICAO, ФМС">
+
+<meta property="og:title" content="Транслитерация для загранпаспорта по правилам МВД">
+<meta property="og:description" content="Введите имя и фамилию на русском — получите правильное написание латиницей для загранпаспорта.">
+<meta property="og:type" content="website">
+  
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108698931', 'ym');
+
+    ym(108698931, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108698931" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #0b2545;
+    --navy-2: #13315c;
+    --burgundy: #8d1b1b;
+    --gold: #c9a96a;
+    --bg: #eef1f7;
+    --card: #ffffff;
+    --text: #15233d;
+    --muted: #5b6b87;
+    --border: #cbd3e1;
+    --border-strong: #8fa0bf;
+    --focus: #2563eb;
+    --focus-bg: #eef4ff;
+    --paper: #f6f3ea;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(11,37,69,0.06), transparent 40%),
+      radial-gradient(circle at 100% 100%, rgba(141,27,27,0.05), transparent 40%);
+    color: var(--text);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+
+  /* Шапка */
+  header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .crest {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 28px;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(11,37,69,0.25), inset 0 0 0 2px var(--gold);
+    letter-spacing: -1px;
+  }
+  header h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  header p.lead {
+    color: var(--muted);
+    margin: 0 auto;
+    font-size: 15px;
+    max-width: 540px;
+  }
+  .badge-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: #fff;
+    border: 1px solid var(--border);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .badge.dot::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: #16a34a;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Карточки */
+  .card {
+    background: var(--card);
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(11,37,69,0.07);
+    padding: 22px;
+    margin-bottom: 18px;
+    border: 1px solid #e3e8f1;
+  }
+  .card.primary {
+    border-top: 3px solid var(--burgundy);
+    padding-top: 24px;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--burgundy);
+    margin: 0 0 18px;
+  }
+
+  /* Поле ввода */
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  .input-shell {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background: #fafbfd;
+    transition: border-color .15s, background .15s, box-shadow .15s;
+    overflow: hidden;
+  }
+  .input-shell:hover { border-color: var(--border-strong); }
+  .input-shell:focus-within {
+    border-color: var(--focus);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+  }
+
+  .input-shell input,
+  .input-shell textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .input-shell input::placeholder,
+  .input-shell textarea::placeholder {
+    color: #a3acc0;
+    font-weight: 400;
+  }
+  .input-shell textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+
+  /* Результат — стиль строки в паспорте */
+  .result {
+    margin-top: 10px;
+    background: var(--paper);
+    border: 1px dashed #c8b88a;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 52px;
+  }
+  .result .res-label {
+    font-size: 11px;
+    color: #8a7a4a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .result .res-value {
+    font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 1px;
+    word-break: break-word;
+    text-transform: uppercase;
+  }
+  .result .res-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .result.empty .res-value {
+    color: #b9ad88;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+
+  .copy-btn {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background .15s, transform .1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .copy-btn:hover { background: var(--navy-2); }
+  .copy-btn:active { transform: scale(0.97); }
+  .copy-btn.copied { background: #16a34a; }
+  .copy-btn:disabled {
+    background: #cbd3e1;
+    cursor: not-allowed;
+  }
+  .copy-btn svg { width: 14px; height: 14px; }
+
+  /* Текстовое поле — у него результат побольше */
+  .field.free .result .res-value { font-size: 16px; text-transform: none; letter-spacing: 0.3px; }
+
+  /* Реклама */
+  .ad-slot {
+    margin: 22px 0;
+    padding: 8px;
+    text-align: center;
+    min-height: 90px;
+  }
+
+  /* Раскрывашка с правилами */
+  details.rules {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: 0 4px 24px rgba(11,37,69,0.07);
+    border: 1px solid #e3e8f1;
+  }
+  details.rules summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+    padding: 4px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  details.rules summary::-webkit-details-marker { display: none; }
+  details.rules summary::after {
+    content: '+';
+    font-size: 22px;
+    color: var(--burgundy);
+    transition: transform .2s;
+    font-weight: 400;
+    line-height: 1;
+  }
+  details.rules[open] summary::after { content: '−'; }
+
+  table.translit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  table.translit-table td, table.translit-table th {
+    border: 1px solid #e3e8f1;
+    padding: 8px 10px;
+    text-align: center;
+  }
+  table.translit-table th { background: #f4f6fa; font-weight: 600; color: var(--navy); }
+  table.translit-table td:nth-child(odd) { font-weight: 600; color: var(--navy); }
+  table.translit-table td:nth-child(even) { font-family: 'JetBrains Mono', monospace; color: var(--burgundy); }
+
+  .info {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+  .info strong { color: var(--navy); }
+
+  /* Сетка с популярными именами */
+  .names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+  }
+  .name-pair {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #f6f3ea;
+    border: 1px solid #e8dfc6;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: background .15s;
+  }
+  .name-pair:hover { background: #f0eadc; }
+  .name-pair .ru { color: var(--navy); font-weight: 500; }
+  .name-pair .lat {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--burgundy);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  /* FAQ */
+  .faq-item { margin-bottom: 18px; }
+  .faq-item:last-child { margin-bottom: 0; }
+  .faq-item h3 {
+    font-size: 15px;
+    color: var(--navy);
+    margin: 0 0 6px;
+    font-weight: 600;
+  }
+  .faq-item p {
+    margin: 0;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    color: #8895af;
+    font-size: 12px;
+    margin-top: 30px;
+    line-height: 1.7;
+  }
+  footer a { color: #5b6b87; text-decoration: none; margin: 0 6px; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 520px) {
+    header h1 { font-size: 23px; }
+    .card { padding: 18px; }
+    .input-shell input, .input-shell textarea { font-size: 16px; padding: 12px 14px; }
+    .result .res-value { font-size: 16px; letter-spacing: 0.5px; }
+    .copy-btn { padding: 8px 10px; font-size: 12px; }
+    .copy-btn .btn-text { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="crest" aria-hidden="true">RU</div>
+    <h1>Транслитерация для загранпаспорта</h1>
+    <p class="lead">Перевод имени и фамилии на латиницу по действующим правилам МВД России (стандарт ICAO Doc 9303).</p>
+    <div class="badge-row">
+      <span class="badge dot">Актуальные правила</span>
+      <span class="badge">Бесплатно</span>
+      <span class="badge">Без регистрации</span>
+    </div>
+  </header>
+
+  <!-- Слот под верхний рекламный блок РСЯ -->
+  <div class="ad-slot" id="ad-top">
+    <!-- ВСТАВЬ СЮДА КОД РСЯ ДЛЯ ВЕРХНЕГО БЛОКА -->
+  </div>
+
+  <div class="card primary">
+    <p class="card-title">Данные паспорта</p>
+
+    <div class="field">
+      <label for="surname">Фамилия</label>
+      <div class="input-shell">
+        <input type="text" id="surname" placeholder="Иванов" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="result empty" id="out-surname">
+        <div class="res-content">
+          <div class="res-label">SURNAME / NOM</div>
+          <div class="res-value">введите данные выше</div>
+        </div>
+        <button class="copy-btn" type="button" disabled aria-label="Копировать">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="btn-text">Копировать</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="name">Имя</label>
+      <div class="input-shell">
+        <input type="text" id="name" placeholder="Александр" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="result empty" id="out-name">
+        <div class="res-content">
+          <div class="res-label">GIVEN NAME / PRÉNOM</div>
+          <div class="res-value">введите данные выше</div>
+        </div>
+        <button class="copy-btn" type="button" disabled aria-label="Копировать">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="btn-text">Копировать</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="patronymic">Отчество <span style="color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;">— необязательно</span></label>
+      <div class="input-shell">
+        <input type="text" id="patronymic" placeholder="Сергеевич" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="result empty" id="out-patronymic">
+        <div class="res-content">
+          <div class="res-label">PATRONYMIC</div>
+          <div class="res-value">введите данные выше</div>
+        </div>
+        <button class="copy-btn" type="button" disabled aria-label="Копировать">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="btn-text">Копировать</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Произвольный текст</p>
+    <div class="field free">
+      <label for="freetext">Слово, фраза, адрес</label>
+      <div class="input-shell">
+        <textarea id="freetext" placeholder="Введите любой текст на русском — получите транслитерацию по правилам загранпаспорта." spellcheck="false"></textarea>
+      </div>
+      <div class="result empty" id="out-freetext">
+        <div class="res-content">
+          <div class="res-label">TRANSLITERATION</div>
+          <div class="res-value">результат появится здесь</div>
+        </div>
+        <button class="copy-btn" type="button" disabled aria-label="Копировать">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="btn-text">Копировать</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Слот под нижний рекламный блок РСЯ -->
+  <div class="ad-slot" id="ad-bottom">
+    <!-- ВСТАВЬ СЮДА КОД РСЯ ДЛЯ НИЖНЕГО БЛОКА -->
+  </div>
+
+  <section class="card" style="border-top:3px solid var(--gold);">
+    <p class="card-title" style="color:var(--navy);">Как пишутся популярные имена в загранпаспорте</p>
+    <p style="color:var(--muted); font-size:14px; margin:0 0 16px;">Готовые примеры по действующим правилам МВД РФ. Если вашего имени нет в списке — введите его в форму выше.</p>
+
+    <div class="names-grid">
+      <div class="name-pair"><span class="ru">Александр</span><span class="lat">ALEKSANDR</span></div>
+      <div class="name-pair"><span class="ru">Алексей</span><span class="lat">ALEKSEI</span></div>
+      <div class="name-pair"><span class="ru">Анастасия</span><span class="lat">ANASTASIIA</span></div>
+      <div class="name-pair"><span class="ru">Андрей</span><span class="lat">ANDREI</span></div>
+      <div class="name-pair"><span class="ru">Анна</span><span class="lat">ANNA</span></div>
+      <div class="name-pair"><span class="ru">Артём</span><span class="lat">ARTEM</span></div>
+      <div class="name-pair"><span class="ru">Виктория</span><span class="lat">VIKTORIIA</span></div>
+      <div class="name-pair"><span class="ru">Дарья</span><span class="lat">DARIA</span></div>
+      <div class="name-pair"><span class="ru">Дмитрий</span><span class="lat">DMITRII</span></div>
+      <div class="name-pair"><span class="ru">Евгений</span><span class="lat">EVGENII</span></div>
+      <div class="name-pair"><span class="ru">Екатерина</span><span class="lat">EKATERINA</span></div>
+      <div class="name-pair"><span class="ru">Елена</span><span class="lat">ELENA</span></div>
+      <div class="name-pair"><span class="ru">Иван</span><span class="lat">IVAN</span></div>
+      <div class="name-pair"><span class="ru">Ирина</span><span class="lat">IRINA</span></div>
+      <div class="name-pair"><span class="ru">Ксения</span><span class="lat">KSENIIA</span></div>
+      <div class="name-pair"><span class="ru">Мария</span><span class="lat">MARIIA</span></div>
+      <div class="name-pair"><span class="ru">Михаил</span><span class="lat">MIKHAIL</span></div>
+      <div class="name-pair"><span class="ru">Наталья</span><span class="lat">NATALIA</span></div>
+      <div class="name-pair"><span class="ru">Никита</span><span class="lat">NIKITA</span></div>
+      <div class="name-pair"><span class="ru">Ольга</span><span class="lat">OLGA</span></div>
+      <div class="name-pair"><span class="ru">Сергей</span><span class="lat">SERGEI</span></div>
+      <div class="name-pair"><span class="ru">Татьяна</span><span class="lat">TATIANA</span></div>
+      <div class="name-pair"><span class="ru">Юлия</span><span class="lat">IULIIA</span></div>
+      <div class="name-pair"><span class="ru">Юрий</span><span class="lat">IURII</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <p class="card-title">Частые вопросы</p>
+
+    <div class="faq-item">
+      <h3>Как сейчас пишется имя в загранпаспорте?</h3>
+      <p>С 2014 года в России действует единый стандарт ICAO Doc 9303, утверждённый Приказом МВД №889. Например, буква «й» теперь передаётся как «I» (раньше было «Y»), «ю» как «IU», «я» как «IA», «ц» как «TS».</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Что делать, если в новом паспорте имя написано иначе, чем в старом?</h3>
+      <p>Это частая ситуация после смены правил транслитерации. Вы вправе подать в подразделении МВД заявление с просьбой сохранить прежнее написание. К заявлению нужно приложить копию документа со старым вариантом — это может быть предыдущий загранпаспорт, действующая виза, водительские права, свидетельство о браке или документы детей.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Чем отличаются правила 2010, 2014 и текущие?</h3>
+      <p>До 2010 года использовались правила, основанные на французской транскрипции (например, «Юлия» → «Youlia»). С 2010 по 2014 действовал ГОСТ Р 52535.1-2006. С 2014 года применяется стандарт ICAO, который сейчас и используется. Большинство отличий касается букв «й», «ц», «ю», «я», «ё».</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Можно ли использовать этот сервис для виз и авиабилетов?</h3>
+      <p>Да. Авиабилеты должны оформляться строго по написанию имени в загранпаспорте — поэтому используйте ту же транслитерацию. Для большинства виз применяются те же правила.</p>
+    </div>
+  </section>
+
+  <details class="rules">
+    <summary>Таблица транслитерации (правила МВД, стандарт ICAO Doc 9303)</summary>
+    <p class="info">С 2014 года в России для оформления загранпаспортов применяется единый стандарт ICAO Doc 9303, закреплённый Приказом МВД России №889 (ранее — Приказ ФМС №211). Ниже — действующая таблица соответствия букв.</p>
+    <table class="translit-table">
+      <thead><tr><th>Рус.</th><th>Лат.</th><th>Рус.</th><th>Лат.</th><th>Рус.</th><th>Лат.</th></tr></thead>
+      <tbody>
+        <tr><td>А</td><td>A</td><td>К</td><td>K</td><td>Х</td><td>KH</td></tr>
+        <tr><td>Б</td><td>B</td><td>Л</td><td>L</td><td>Ц</td><td>TS</td></tr>
+        <tr><td>В</td><td>V</td><td>М</td><td>M</td><td>Ч</td><td>CH</td></tr>
+        <tr><td>Г</td><td>G</td><td>Н</td><td>N</td><td>Ш</td><td>SH</td></tr>
+        <tr><td>Д</td><td>D</td><td>О</td><td>O</td><td>Щ</td><td>SHCH</td></tr>
+        <tr><td>Е</td><td>E</td><td>П</td><td>P</td><td>Ъ</td><td>IE</td></tr>
+        <tr><td>Ё</td><td>E</td><td>Р</td><td>R</td><td>Ы</td><td>Y</td></tr>
+        <tr><td>Ж</td><td>ZH</td><td>С</td><td>S</td><td>Ь</td><td>—</td></tr>
+        <tr><td>З</td><td>Z</td><td>Т</td><td>T</td><td>Э</td><td>E</td></tr>
+        <tr><td>И</td><td>I</td><td>У</td><td>U</td><td>Ю</td><td>IU</td></tr>
+        <tr><td>Й</td><td>I</td><td>Ф</td><td>F</td><td>Я</td><td>IA</td></tr>
+      </tbody>
+    </table>
+    <p class="info"><strong>Важно.</strong> Если в ранее выданных документах (старый загранпаспорт, виза, водительские права, документы на ребёнка) ваше имя написано иначе — вы вправе подать заявление в подразделении МВД с просьбой сохранить прежнее написание. К заявлению прикладывается копия документа со старым вариантом транслитерации.</p>
+  </details>
+
+  <footer>
+    <div style="margin-bottom:10px;">
+      <a href="./">Главная</a> · <a href="about.html">О сайте</a> · <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
+    Сервис носит справочный характер.<br>
+    Действующие правила: Приказ МВД России №889, стандарт ICAO Doc 9303.
+  </footer>
+</div>
+
+<script>
+  const map = {
+    'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'e','ж':'zh','з':'z',
+    'и':'i','й':'i','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r',
+    'с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh',
+    'щ':'shch','ъ':'ie','ы':'y','ь':'','э':'e','ю':'iu','я':'ia'
+  };
+
+  function translitChar(ch) {
+    const lower = ch.toLowerCase();
+    if (map.hasOwnProperty(lower)) {
+      const res = map[lower];
+      if (ch === lower || res === '') return res;
+      return res.charAt(0).toUpperCase() + res.slice(1);
+    }
+    return ch;
+  }
+
+  function translit(str) {
+    let out = '';
+    for (const ch of str) out += translitChar(ch);
+    return out;
+  }
+
+  function properCase(str) {
+    return str.toLowerCase().replace(/(^|[\s\-])(\S)/g, (m, sep, ch) => sep + ch.toUpperCase());
+  }
+
+  function setupField(inputId, outputId, isName) {
+    const input = document.getElementById(inputId);
+    const output = document.getElementById(outputId);
+    const valueEl = output.querySelector('.res-value');
+    const btn = output.querySelector('.copy-btn');
+    const emptyText = isName ? 'введите данные выше' : 'результат появится здесь';
+
+    function update() {
+      const raw = input.value.trim();
+      if (!raw) {
+        output.classList.add('empty');
+        valueEl.textContent = emptyText;
+        btn.disabled = true;
+        return;
+      }
+      const source = isName ? properCase(raw) : raw;
+      const result = translit(source);
+      output.classList.remove('empty');
+      valueEl.textContent = isName ? result.toUpperCase() : result;
+      btn.disabled = false;
+      btn.dataset.value = result;
+    }
+
+    btn.addEventListener('click', () => {
+      const text = btn.dataset.value || '';
+      if (!text) return;
+      copy(text, btn);
+    });
+
+    input.addEventListener('input', update);
+  }
+
+  function copy(text, btn) {
+    const original = btn.querySelector('.btn-text') ? btn.querySelector('.btn-text').textContent : '';
+    const done = () => {
+      btn.classList.add('copied');
+      const t = btn.querySelector('.btn-text');
+      if (t) t.textContent = 'Готово';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        if (t) t.textContent = original || 'Копировать';
+      }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+
+  function fallbackCopy(text, done) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  setupField('surname', 'out-surname', true);
+  setupField('name', 'out-name', true);
+  setupField('patronymic', 'out-patronymic', true);
+  setupField('freetext', 'out-freetext', false);
+</script>
+
+</body>
+</html>
