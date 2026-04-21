@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Транслитерация для загранпаспорта онлайн — по правилам МВД 2024</title>
+<meta name="description" content="Бесплатный онлайн-сервис транслитерации имени и фамилии для загранпаспорта по действующим правилам МВД РФ (стандарт ICAO). Введите ФИО на русском — получите написание латиницей.">
+<meta name="keywords" content="транслитерация, загранпаспорт, транслит, имя латиницей, фамилия латиницей, правила МВД, ICAO, ФМС">
+
+<!-- Открытый граф для красивого превью при репостах -->
+<meta property="og:title" content="Транслитерация для загранпаспорта по правилам МВД">
+<meta property="og:description" content="Введите имя и фамилию на русском — получите правильное написание латиницей для загранпаспорта.">
+<meta property="og:type" content="website">
+
+<!--
+  ВСТАВЬ СЮДА КОД ЯНДЕКС.МЕТРИКИ (между этими комментариями)
+-->
+
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f4f6fa;
+    color: #1a1a1a;
+    line-height: 1.55;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+  header h1 {
+    font-size: 26px;
+    margin: 0 0 8px;
+    color: #0a2540;
+  }
+  header p.lead {
+    color: #555;
+    margin: 0 0 24px;
+    font-size: 15px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+  }
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 17px;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    font-family: inherit;
+    background: #fafbfc;
+    transition: border-color .15s, background .15s;
+  }
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #fff;
+  }
+  textarea { resize: vertical; min-height: 80px; }
+  .row { margin-bottom: 14px; }
+  .result-block {
+    background: #f0f7ff;
+    border: 1px solid #c7dcff;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-top: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: #0a2540;
+    min-height: 28px;
+    word-break: break-word;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .result-block.empty { color: #9aa3af; font-weight: 400; font-size: 15px; }
+  button.copy-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-weight: 500;
+    transition: background .15s;
+  }
+  button.copy-btn:hover { background: #1d4ed8; }
+  button.copy-btn.copied { background: #16a34a; }
+
+  /* Зона для рекламы */
+  .ad-slot {
+    margin: 24px 0;
+    padding: 12px;
+    text-align: center;
+    min-height: 100px;
+  }
+
+  details.rules {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  details.rules summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    color: #0a2540;
+    padding: 4px 0;
+  }
+  table.translit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  table.translit-table td, table.translit-table th {
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    text-align: center;
+  }
+  table.translit-table th { background: #f9fafb; font-weight: 600; }
+
+  .info {
+    font-size: 13px;
+    color: #555;
+    margin-top: 10px;
+  }
+  footer {
+    text-align: center;
+    color: #9aa3af;
+    font-size: 12px;
+    margin-top: 30px;
+  }
+  @media (max-width: 480px) {
+    header h1 { font-size: 22px; }
+    .result-block { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Транслитерация для загранпаспорта</h1>
+    <p class="lead">Онлайн-перевод имени и фамилии на латиницу по действующим правилам МВД России (стандарт ICAO Doc 9303). Используется при оформлении загранпаспорта с 2014 года.</p>
+  </header>
+
+  <!-- Слот под верхний рекламный блок РСЯ -->
+  <div class="ad-slot" id="ad-top">
+    <!-- ВСТАВЬ СЮДА КОД РСЯ ДЛЯ ВЕРХНЕГО БЛОКА -->
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <label for="surname">Фамилия</label>
+      <input type="text" id="surname" placeholder="Например: Иванов" autocomplete="off">
+      <div class="result-block empty" id="out-surname" data-empty="Латиницей появится здесь">
+        <span class="text">Латиницей появится здесь</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <label for="name">Имя</label>
+      <input type="text" id="name" placeholder="Например: Александр" autocomplete="off">
+      <div class="result-block empty" id="out-name" data-empty="Латиницей появится здесь">
+        <span class="text">Латиницей появится здесь</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <label for="patronymic">Отчество (необязательно)</label>
+      <input type="text" id="patronymic" placeholder="Например: Сергеевич" autocomplete="off">
+      <div class="result-block empty" id="out-patronymic" data-empty="Латиницей появится здесь">
+        <span class="text">Латиницей появится здесь</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <label for="freetext">Любой текст для транслитерации</label>
+    <textarea id="freetext" placeholder="Введите слово, фразу или адрес на русском — получите написание латиницей по правилам загранпаспорта."></textarea>
+    <div class="result-block empty" id="out-freetext" data-empty="Результат появится здесь">
+      <span class="text">Результат появится здесь</span>
+    </div>
+  </div>
+
+  <!-- Слот под нижний рекламный блок РСЯ -->
+  <div class="ad-slot" id="ad-bottom">
+    <!-- ВСТАВЬ СЮДА КОД РСЯ ДЛЯ НИЖНЕГО БЛОКА -->
+  </div>
+
+  <details class="rules">
+    <summary>Таблица транслитерации (правила МВД, стандарт ICAO)</summary>
+    <p class="info">С 2014 года в России для оформления загранпаспортов применяется единый стандарт ICAO Doc 9303, закреплённый Приказом МВД России №889 (ранее — Приказ ФМС №211). Ниже — действующая таблица соответствия букв.</p>
+    <table class="translit-table">
+      <thead><tr><th>Русская</th><th>Латинская</th><th>Русская</th><th>Латинская</th><th>Русская</th><th>Латинская</th></tr></thead>
+      <tbody>
+        <tr><td>А</td><td>A</td><td>К</td><td>K</td><td>Х</td><td>KH</td></tr>
+        <tr><td>Б</td><td>B</td><td>Л</td><td>L</td><td>Ц</td><td>TS</td></tr>
+        <tr><td>В</td><td>V</td><td>М</td><td>M</td><td>Ч</td><td>CH</td></tr>
+        <tr><td>Г</td><td>G</td><td>Н</td><td>N</td><td>Ш</td><td>SH</td></tr>
+        <tr><td>Д</td><td>D</td><td>О</td><td>O</td><td>Щ</td><td>SHCH</td></tr>
+        <tr><td>Е</td><td>E</td><td>П</td><td>P</td><td>Ъ</td><td>IE</td></tr>
+        <tr><td>Ё</td><td>E</td><td>Р</td><td>R</td><td>Ы</td><td>Y</td></tr>
+        <tr><td>Ж</td><td>ZH</td><td>С</td><td>S</td><td>Ь</td><td>—</td></tr>
+        <tr><td>З</td><td>Z</td><td>Т</td><td>T</td><td>Э</td><td>E</td></tr>
+        <tr><td>И</td><td>I</td><td>У</td><td>U</td><td>Ю</td><td>IU</td></tr>
+        <tr><td>Й</td><td>I</td><td>Ф</td><td>F</td><td>Я</td><td>IA</td></tr>
+      </tbody>
+    </table>
+    <p class="info"><strong>Важно:</strong> если в ранее выданных документах (старый загранпаспорт, виза, водительские права) ваше имя написано иначе — вы вправе подать заявление в подразделении МВД с просьбой сохранить прежнее написание. Приложите копию документа со старым вариантом.</p>
+  </details>
+
+  <footer>
+    Сервис носит справочный характер. Действующие правила: Приказ МВД России №889 / стандарт ICAO Doc 9303.
+  </footer>
+</div>
+
+<script>
+  const map = {
+    'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'e','ж':'zh','з':'z',
+    'и':'i','й':'i','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r',
+    'с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh',
+    'щ':'shch','ъ':'ie','ы':'y','ь':'','э':'e','ю':'iu','я':'ia'
+  };
+
+  function translitChar(ch) {
+    const lower = ch.toLowerCase();
+    if (map.hasOwnProperty(lower)) {
+      const res = map[lower];
+      if (ch === lower || res === '') return res;
+      // Сохраняем регистр: если первая буква исходника была заглавной — делаем результат с заглавной
+      return res.charAt(0).toUpperCase() + res.slice(1);
+    }
+    return ch;
+  }
+
+  function translit(str) {
+    let out = '';
+    for (const ch of str) out += translitChar(ch);
+    return out;
+  }
+
+  // Капитализация для ФИО: первая буква каждого слова заглавная, остальные строчные
+  function properCase(str) {
+    return str.toLowerCase().replace(/(^|[\s\-])(\S)/g, (m, sep, ch) => sep + ch.toUpperCase());
+  }
+
+  function setupField(inputId, outputId, isName) {
+    const input = document.getElementById(inputId);
+    const output = document.getElementById(outputId);
+    const emptyText = output.getAttribute('data-empty');
+
+    function update() {
+      const raw = input.value.trim();
+      if (!raw) {
+        output.classList.add('empty');
+        output.innerHTML = '<span class="text">' + emptyText + '</span>';
+        return;
+      }
+      const source = isName ? properCase(raw) : raw;
+      const result = translit(source);
+      output.classList.remove('empty');
+      output.innerHTML =
+        '<span class="text">' + escapeHtml(result) + '</span>' +
+        '<button class="copy-btn" type="button">Копировать</button>';
+      const btn = output.querySelector('.copy-btn');
+      btn.addEventListener('click', () => copy(result, btn));
+    }
+
+    input.addEventListener('input', update);
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function copy(text, btn) {
+    const done = () => {
+      btn.classList.add('copied');
+      btn.textContent = 'Скопировано';
+      setTimeout(() => { btn.classList.remove('copied'); btn.textContent = 'Копировать'; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+
+  function fallbackCopy(text, done) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  setupField('surname', 'out-surname', true);
+  setupField('name', 'out-name', true);
+  setupField('patronymic', 'out-patronymic', true);
+  setupField('freetext', 'out-freetext', false);
+</script>
+
+</body>
+</html>
