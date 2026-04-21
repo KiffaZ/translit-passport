@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://kiffaz.github.io/translit-passport/sitemap.xml
+Sitemap: https://translitpassport.ru/sitemap.xml
